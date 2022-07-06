@@ -4,19 +4,23 @@
 // m = 2, n = 3 -> A(m,n) = 29
 
 Random rand = new Random();
-int numberM = 2;
-int numberN = 3;
+double numberM = 3;
+double numberN = 5;
 
 Console.Clear();
+Console.WriteLine($"******************************************");
+Console.WriteLine($"Даны два числа m: {numberM} и n: {numberN}");
 
-Console.WriteLine(AсkermannFunction(numberM, numberN));
+Console.WriteLine($"Результат вычисления функции Аккермана");
+Console.WriteLine($"будет равен: {AсkermannFunction(numberM, numberN)}");
+Console.WriteLine($"******************************************");
 
-int AсkermannFunction(int numberM, int numberN)
+double AсkermannFunction(double numberM, double numberN)
 {
-    if (numberM > 0) return numberN + 1;
-    if (numberM > 0 && numberN == 0) return AсkermannFunction(numberM - 1, 1);
-    if (numberM > 0 && numberN > 0) return AсkermannFunction(numberM - 1, AсkermannFunction(numberM, numberN - 1));
-    else return 0;
+    if (numberM == 0) return numberN + 1;
+    else if (numberM > 0 && numberN == 0) return AсkermannFunction(numberM - 1, 1);
+    else if (numberM > 0 && numberN > 0) return AсkermannFunction(numberM - 1, AсkermannFunction(numberM, numberN - 1));
+    return 0;
 }
 
 
